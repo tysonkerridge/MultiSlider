@@ -40,6 +40,10 @@ class ViewController: UIViewController {
         horizontalMultiSlider.showsThumbImageShadow = false
         view.addConstrainedSubview(horizontalMultiSlider, constrain: .leftMargin, .rightMargin, .bottomMargin)
         view.layoutMargins = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
+
+        // use different images for different thumbs
+        horizontalMultiSlider.thumbViews[0].image = #imageLiteral(resourceName: "walking.png")
+        horizontalMultiSlider.thumbViews[1].image = #imageLiteral(resourceName: "running.png")
     }
 
     @objc func sliderChanged(_ slider: MultiSlider) {
