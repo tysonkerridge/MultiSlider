@@ -8,11 +8,25 @@
 import UIKit
 
 extension MultiSlider: UIGestureRecognizerDelegate {
+
+    public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard super.gestureRecognizerShouldBegin(gestureRecognizer) else { return false }
+        if gestureRecognizer == panGesture, let view = gestureRecognizer.view {
+            let translation = panGesture.translation(in: view)
+            switch orientation {
+            case .horizontal:
+                return translation.y == 0
+            case .vertical:
+                return translation.x == 0
+            @unknown default:
+                break
+            }
+        }
+        return true
+    }
+
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard let panGesture = otherGestureRecognizer as? UIPanGestureRecognizer else { return false }
-        let velocity = panGesture.velocity(in: self)
-        let panOrientation: NSLayoutConstraint.Axis = abs(velocity.y) > abs(velocity.x) ? .vertical : .horizontal
-        return panOrientation != orientation
+        false
     }
 
     @objc open func didDrag(_ panGesture: UIPanGestureRecognizer) {

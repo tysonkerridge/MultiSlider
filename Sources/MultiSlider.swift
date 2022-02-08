@@ -207,6 +207,7 @@ open class MultiSlider: UIControl {
 
     // MARK: - Internals
 
+    let panGesture = UIPanGestureRecognizer()
     let slideView = UIView()
     let panGestureView = UIView()
     let margin: CGFloat = 32
