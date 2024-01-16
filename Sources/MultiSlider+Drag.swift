@@ -9,15 +9,18 @@ import UIKit
 
 extension MultiSlider: UIGestureRecognizerDelegate {
 
+    // Note: when using a == 0 check the values weren't always 0, but close to 0, eg. 5.684341886080802e-14
+    private static let closeToZero = -0.1...0.1
+    
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         guard super.gestureRecognizerShouldBegin(gestureRecognizer) else { return false }
         if gestureRecognizer == panGesture, let view = gestureRecognizer.view {
             let translation = panGesture.translation(in: view)
             switch orientation {
             case .horizontal:
-                return translation.y == 0
+                return Self.closeToZero.contains(translation.y)
             case .vertical:
-                return translation.x == 0
+                return Self.closeToZero.contains(translation.x)
             @unknown default:
                 break
             }
