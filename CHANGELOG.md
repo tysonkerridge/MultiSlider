@@ -4,6 +4,58 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.1.1] - 2023-08-19
+
+### Added
+- add privacy manifest PrivacyInfo.xcprivacy.
+
+## [2.1.0] - 2023-07-15
+
+### Added
+- add `valueLabelAlternatePosition` to allow more space for the value labels by alternating their positions for consecutive thumbs (eg top/bottom or leading/trailing).
+
+## [2.0.0] - 2023-03-12
+
+### Added
+- add `snapValues` to allow snapping to any series of values.
+- add optional `snapImage` to mark snap values over slider track.
+- add `centerThumbOnTrackEnd`.
+
+## [1.13.2] - 2022-11-07
+
+### Fixed
+- fix accentColor() for SwiftUI MultiValueSlider.
+
+## [1.13.1] - 2022-10-08
+
+### Added
+- add SwiftUI modifiers.
+
+## [1.13.0] - 2022-09-30
+
+### Added
+- add SwiftUI wrapper `MultiValueSlider`.
+
+## [1.12.3] - 2022-07-15
+
+### Changed
+- allow returning `nil` from `valueLabelTextForThumb`. (thanks @joeypatino!)
+
+## [1.12.2] - 2022-02-19
+
+### Fixed
+- apply tintColor to `minimumView` and `maximumView`.
+
+## [1.12.1] - 2022-02-18
+
+### Added
+- add `thumbTintColor`.
+
+## [1.12.0] - 2022-02-08
+
+### Added
+- add `valueLabelTextForThumb`. (thanks @ryota765!)
+
 ## [1.11.2] - 2021-01-04
 
 ### Fixed
@@ -17,7 +69,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.11.0] - 2020-12-17
 
 ### Added
-- add `valueLabelColor`. (thanks sluzhynskyi!)
+- add `valueLabelColor`. (thanks @sluzhynskyi!)
 
 ## [1.10.13] - 2020-12-05
 
@@ -27,7 +79,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.10.12] - 2020-09-18
 
 ### Changed
-- allow using  `outerTrackColor` with a single thumb. (thanks gregorio-michael!)
+- allow using  `outerTrackColor` with a single thumb. (thanks @gregorio-michael!)
 
 ## [1.10.11] - 2020-06-23
 
@@ -161,7 +213,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.5.0] - 2018-07-01
 
 ### Added
-- send `.touchUpInside` event when user finished dragging. (thanks benjaminfischer!)
+- send `.touchUpInside` event when user finished dragging. (thanks @benjaminfischer!)
 
 ## [1.4.3] - 2018-06-25
 
@@ -176,8 +228,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.4] - 2018-03-01
 
 ### Added
-- hasRoundTrackEnds (thanks benjaminfischer!)
-- showsThumbImageShadow (thanks benjaminfischer!)
+- hasRoundTrackEnds (thanks @benjaminfischer!)
+- showsThumbImageShadow (thanks @benjaminfischer!)
 
 ## [1.3.1] - 2018-02-24
 

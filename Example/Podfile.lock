@@ -1,14 +1,14 @@
 PODS:
   - AvailableHapticFeedback (1.0.2)
-  - MultiSlider (1.11.2):
+  - MultiSlider (2.1.0):
     - AvailableHapticFeedback
     - SweeterSwift
-  - SweeterSwift (1.1.4)
-  - SwiftFormat/CLI (0.46.3)
-  - SwiftLint (0.40.3)
-  - SwiftQuality (1.0.8):
-    - SwiftFormat/CLI (= 0.46.3)
-    - SwiftLint (= 0.40.3)
+  - SweeterSwift (1.2.1)
+  - SwiftFormat/CLI (0.50.7)
+  - SwiftLint (0.50.3)
+  - SwiftQuality (2.0.1):
+    - SwiftFormat/CLI (= 0.50.7)
+    - SwiftLint (= 0.50.3)
 
 DEPENDENCIES:
   - MultiSlider (from `..`)
@@ -29,17 +29,17 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftQuality:
-    :commit: faa559562f9bce4f5a4e4c2f001ea4b90a9e560b
+    :commit: f192ce833f082501a51269c1cb08cf6cf01fa3a3
     :git: https://github.com/yonat/SwiftQuality
 
 SPEC CHECKSUMS:
   AvailableHapticFeedback: 9b21b9f6d3e4566015988b5de35b40abefe6c09a
-  MultiSlider: 25527e6ded207b885ad8a9f974d10bdcd8b19706
-  SweeterSwift: 8a90cf3156f5a1b6f39785c479369a16633b5ea9
-  SwiftFormat: b639417da9e024b9e782f917bc9a080cf75bcb37
-  SwiftLint: dfd554ff0dff17288ee574814ccdd5cea85d76f7
-  SwiftQuality: 8768a6f4b6cbe51d4771aed033460860f162a1fe
+  MultiSlider: ac3545e486dcf7f758848679cc601a5581da8d26
+  SweeterSwift: 61baeda1c0c27d1dc57c8112c3d6a82e5aff3139
+  SwiftFormat: 4fcf72ee44c7198255108c22ed7135c38a36ba6b
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  SwiftQuality: 8d69820e0f82a25563c3cb33d31b0a11f124ea0c
 
-PODFILE CHECKSUM: 0be31edc1218193657fac36f21cf64676e340c8c
+PODFILE CHECKSUM: ed7f9205bad8b43d16383ee943568b2a6adc7775
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.1

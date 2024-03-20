@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MultiSlider"
-  s.version      = "1.11.2"
+  s.version      = "2.1.2"
   s.summary      = "UISlider clone with multiple thumbs and values, optional snap intervals, optional value labels."
 
   s.homepage     = "https://github.com/yonat/MultiSlider"
@@ -15,9 +15,11 @@ Pod::Spec.new do |s|
   s.swift_versions = ['4.2', '5.0']
   s.platform     = :ios, "11.0"
   s.requires_arc = true
+  s.weak_framework = 'SwiftUI'
 
   s.source       = { :git => "https://github.com/yonat/MultiSlider.git", :tag => s.version }
   s.source_files  = "Sources/*.swift"
+  s.resources = ['PrivacyInfo.xcprivacy']
 
   s.dependency 'SweeterSwift'
   s.dependency 'AvailableHapticFeedback'

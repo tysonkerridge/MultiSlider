@@ -9,28 +9,26 @@
 import MultiSlider
 import UIKit
 
+#if canImport(SwiftUI)
+import SwiftUI
+#endif
+
 class ViewController: UIViewController {
     @IBOutlet var multiSlider: MultiSlider!
+    @IBOutlet var showSwiftUIButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         multiSlider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
-        multiSlider.disabledThumbIndices = [3]
 
         if #available(iOS 13.0, *) {
             multiSlider.minimumImage = UIImage(systemName: "moon.fill")
             multiSlider.maximumImage = UIImage(systemName: "sun.max.fill")
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.multiSlider.value = [0.4, 2.8]
-            self.multiSlider.valueLabelPosition = .top
-        }
-
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            self.multiSlider.thumbCount = 5
             self.multiSlider.valueLabelPosition = .right
-            self.multiSlider.isValueLabelRelative = true
+            self.multiSlider.thumbCount = 7
         }
 
         let horizontalMultiSlider = MultiSlider()
@@ -43,6 +41,7 @@ class ViewController: UIViewController {
         horizontalMultiSlider.tintColor = .purple
         horizontalMultiSlider.trackWidth = 32
         horizontalMultiSlider.showsThumbImageShadow = false
+        horizontalMultiSlider.valueLabelAlternatePosition = true
         horizontalMultiSlider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
         view.addConstrainedSubview(horizontalMultiSlider, constrain: .leftMargin, .rightMargin, .bottomMargin)
         view.layoutMargins = UIEdgeInsets(top: 32, left: 32, bottom: 32, right: 32)
@@ -57,10 +56,44 @@ class ViewController: UIViewController {
             horizontalMultiSlider.minimumImage = UIImage(systemName: "scissors")
             horizontalMultiSlider.maximumImage = UIImage(systemName: "paperplane.fill")
         }
+
+        let snapSlider = MultiSlider()
+        snapSlider.orientation = .horizontal
+        snapSlider.snapValues = [0, 0.5, 1, 2, 4, 8]
+        snapSlider.value = [0.5]
+        snapSlider.tintColor = .systemGreen
+        snapSlider.trackWidth = 5
+        if #available(iOS 13.0, *) {
+            snapSlider.snapImage = .init(systemName: "circle.fill")
+        }
+        snapSlider.valueLabelPosition = .top
+        snapSlider.valueLabelColor = snapSlider.tintColor
+        snapSlider.valueLabelFont = .boldSystemFont(ofSize: 16)
+        snapSlider.valueLabelFormatter.positiveSuffix = " pt"
+        view.addConstrainedSubview(snapSlider, constrain: .leftMargin, .rightMargin)
+        view.constrain(horizontalMultiSlider, at: .top, to: snapSlider, at: .bottom, diff: 32)
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if #available(iOS 13.0, *) {
+            showSwiftUIButton.isHidden = false
+            showSwiftUIButton.layer.borderWidth = 1
+            showSwiftUIButton.layer.cornerRadius = showSwiftUIButton.frame.height / 2
+            showSwiftUIButton.layer.borderColor = view.actualTintColor.cgColor
+        }
     }
 
     @objc func sliderChanged(_ slider: MultiSlider) {
         print("thumb \(slider.draggedThumbIndex) moved")
         print("now thumbs are at \(slider.value)") // e.g., [1.0, 4.5, 5.0]
+    }
+
+    @IBAction func showSwiftUIDemo() {
+        #if canImport(SwiftUI)
+        if #available(iOS 13.0, *) {
+            present(UIHostingController(rootView: MultiValueSliderDemo()), animated: true)
+        }
+        #endif
     }
 }
